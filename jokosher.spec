@@ -6,6 +6,7 @@ Group:		Sound
 License:	GPL
 URL:		http://jokosher.org
 Source0:	http://www.jokosher.org/downloads/source/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-0.9-emit-instrument-name.patch
 BuildRequires:	python-devel >= %{py_ver}
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
@@ -48,6 +49,7 @@ Jokosher offers a strong featureset:
 
 %prep
 %setup -q
+%patch0 -p1 -b .name
 
 sed -i '1d' Jokosher/JokosherApp.py
 sed -i s/"Version=0.9"/"Version=1.0"/g bin/jokosher.desktop
