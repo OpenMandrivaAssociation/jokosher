@@ -17,6 +17,7 @@ Requires:	gnonlin >= 0.10.8
 Requires:	gstreamer0.10-plugins-base >= 0.10.11
 Requires:	gstreamer0.10-plugins-good >= 0.10.4
 Requires:	gstreamer0.10-python
+Requires:	gstreamer0.10-plugins-ugly >= 0.10.6
 Requires:	gnome-python
 Requires:	pygtk2.0-libglade
 Requires:	python-setuptools
