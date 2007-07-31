@@ -22,6 +22,7 @@ Requires:	gstreamer0.10-plugins-bad >= 0.10.5
 Requires:	gnome-python
 Requires:	pygtk2.0-libglade
 Requires:	python-setuptools
+Requires:	python-pyxml
 Requires:	yelp
 Requires:	ladspa
 Requires(post):	scrollkeeper
