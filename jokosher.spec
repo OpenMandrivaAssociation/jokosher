@@ -66,7 +66,7 @@ python setup.py install --skip-build --root=%{buildroot}
 desktop-file-install \
     --remove-category="Application" \
     --remove-category="AudioVideo" \
-    --add-category="Recorder" \
+    --add-category="Audio;Recorder" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 chmod 755 %{buildroot}%{py_sitedir}/Jokosher/Profiler.py
