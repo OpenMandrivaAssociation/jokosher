@@ -71,6 +71,10 @@ desktop-file-install \
 
 chmod 755 %{buildroot}%{py_sitedir}/Jokosher/Profiler.py
 
+#(tpg) wtf?
+mkdir -p %{buildroot}%{_datadir}/omf/%{name}
+mv -f %{buildroot}%{_prefix}/jokosher/* %{buildroot}%{_datadir}/omf/%{name}
+
 %find_lang %{name}
 
 %post
