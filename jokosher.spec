@@ -1,7 +1,7 @@
 Summary:	Jokosher is a simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.9
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Sound
 License:	GPL
 URL:		http://jokosher.org
