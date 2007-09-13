@@ -63,6 +63,8 @@ python setup.py build
 %install
 python setup.py install --skip-build --root=%{buildroot}
 
+perl -pi -e 's,%{name}-icon.png,%{name}-icon,g' %{buildroot}%{_datadir}/applications/*
+
 desktop-file-install \
     --remove-category="Application" \
     --remove-category="AudioVideo" \
@@ -72,8 +74,8 @@ desktop-file-install \
 chmod 755 %{buildroot}%{py_sitedir}/Jokosher/Profiler.py
 
 #(tpg) wtf?
-mkdir -p %{buildroot}%{_datadir}/omf/%{name}
-mv -f %{buildroot}%{_prefix}/jokosher/* %{buildroot}%{_datadir}/omf/%{name}
+#mkdir -p %{buildroot}%{_datadir}/omf/%{name}
+#mv -f %{buildroot}%{_prefix}/jokosher/* %{buildroot}%{_datadir}/omf/%{name}
 
 %find_lang %{name}
 
