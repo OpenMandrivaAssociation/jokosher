@@ -1,7 +1,7 @@
 Summary:	Jokosher is a simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.9
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		Sound
 License:	GPL
 URL:		http://jokosher.org
@@ -68,7 +68,7 @@ perl -pi -e 's,%{name}-icon.png,%{name}-icon,g' %{buildroot}%{_datadir}/applicat
 desktop-file-install \
     --remove-category="Application" \
     --remove-category="AudioVideo" \
-    --add-category="Audio;Recorder" \
+    --add-category="Audio;Recorder;X-MandrivaLinux-CrossDesktop;" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 chmod 755 %{buildroot}%{py_sitedir}/Jokosher/Profiler.py
