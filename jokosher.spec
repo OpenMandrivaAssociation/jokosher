@@ -29,7 +29,6 @@ Requires(post):	scrollkeeper
 Requires(postun): scrollkeeper
 Obsoletes:	%{name} < 0.9
 BuildArch:	noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Jokosher is a simple and poweful multi-track studio.Jokosher provides 
