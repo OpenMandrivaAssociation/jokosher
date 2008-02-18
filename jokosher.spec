@@ -1,4 +1,4 @@
-Summary:	Jokosher is a simple yet powerful multi-track studio
+Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.9
 Release:	%mkrel 6
