@@ -1,9 +1,9 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.9
-Release:	%mkrel 7
+Release:	%mkrel 8
 Group:		Sound
-License:	GPL
+License:	GPLv2+
 URL:		http://jokosher.org
 Source0:	http://www.jokosher.org/downloads/source/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.9-emit-instrument-name.patch
