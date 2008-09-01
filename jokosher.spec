@@ -6,7 +6,6 @@ Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
 Source0:	http://www.jokosher.org/downloads/source/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-0.9-emit-instrument-name.patch
 BuildRequires:	python-devel >= %{py_ver}
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
@@ -52,7 +51,6 @@ Jokosher offers a strong featureset:
 
 %prep
 %setup -q
-%patch0 -p1 -b .name
 
 sed -i '1d' Jokosher/JokosherApp.py
 sed -i s/"Version=0.9"/"Version=1.0"/g bin/jokosher.desktop
@@ -110,7 +108,10 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%{name}/extensions
 %dir %{_datadir}/%{name}/pixmaps
 %dir %{_datadir}/omf/%{name}
+%dir %{py_sitedir}/Jokosher
+%dir %{py_sitedir}/Jokosher/elements
 %{py_sitedir}/Jokosher/*.py*
+%{py_sitedir}/Jokosher/elements/*.py*
 %{py_sitedir}/%{name}*egg-info
 %{_datadir}/applications/jokosher.desktop
 %{_datadir}/gnome/help/jokosher/C/figures/*.png
@@ -124,4 +125,4 @@ rm -rf %{buildroot}
 %{_datadir}/jokosher/jokosher-logo.png
 %{_datadir}/jokosher/pixmaps/*.png
 %{_datadir}/mime/packages/jokosher.xml
-%{_datadir}/pixmaps/jokosher-icon.png
+%{_datadir}/pixmaps/jokosher.png
