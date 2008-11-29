@@ -1,7 +1,7 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.10
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
@@ -20,7 +20,11 @@ Requires:	gstreamer0.10-plugins-ugly >= 0.10.6
 Requires:	gstreamer0.10-plugins-bad >= 0.10.5
 Requires:	gnome-python
 Requires:	pygtk2.0-libglade
+%if %mdkversion > 200900
+Requires:	python-pkg-resources
+%else
 Requires:	python-setuptools
+%endif
 Requires:	python-pyxml
 Requires:	yelp
 Requires:	ladspa
