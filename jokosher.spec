@@ -1,7 +1,7 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.10
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
