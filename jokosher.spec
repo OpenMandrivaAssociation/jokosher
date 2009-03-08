@@ -1,7 +1,7 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
-Version:	0.10
-Release:	%mkrel 3
+Version:	0.11
+Release:	%mkrel 1
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
@@ -114,8 +114,10 @@ rm -rf %{buildroot}
 %dir %{_datadir}/omf/%{name}
 %dir %{py_sitedir}/Jokosher
 %dir %{py_sitedir}/Jokosher/elements
+%dir %{py_sitedir}/Jokosher/ui
 %{py_sitedir}/Jokosher/*.py*
 %{py_sitedir}/Jokosher/elements/*.py*
+%{py_sitedir}/Jokosher/ui/*.py*
 %{py_sitedir}/%{name}*egg-info
 %{_datadir}/applications/jokosher.desktop
 %{_datadir}/gnome/help/jokosher/C/figures/*.png
