@@ -1,11 +1,13 @@
+%define mainver $(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
+
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
-Version:	0.11
-Release:	%mkrel 2
+Version:	0.11.2
+Release:	%mkrel 1
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
-Source0:	http://www.jokosher.org/downloads/source/%{name}-%{version}.tar.bz2
+Source0:	http://launchpad.net/jokosher/%{mainver}/%{version}/+download/%{name}-%{version}.tar.gz
 BuildRequires:	python-devel >= %{py_ver}
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
@@ -115,8 +117,10 @@ rm -rf %{buildroot}
 %dir %{py_sitedir}/Jokosher
 %dir %{py_sitedir}/Jokosher/elements
 %dir %{py_sitedir}/Jokosher/ui
+%dir %{py_sitedir}/Jokosher/PlatformUtils
 %{py_sitedir}/Jokosher/*.py*
 %{py_sitedir}/Jokosher/elements/*.py*
+%{py_sitedir}/Jokosher/PlatformUtils/*.py*
 %{py_sitedir}/Jokosher/ui/*.py*
 %{py_sitedir}/%{name}*egg-info
 %{_datadir}/applications/jokosher.desktop
