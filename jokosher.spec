@@ -1,4 +1,4 @@
-%define mainver $(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
+%define mainver %(echo %{version} | sed -e "s/\\([0-9]*\\.[0-9]*\\).[0-9]*/\\1/")
 
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
