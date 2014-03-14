@@ -13,7 +13,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
 BuildRequires:	gettext
 BuildRequires:	scrollkeeper
-Requires:	dbus-python
+Requires:	python-dbus
 Requires:	gnonlin >= 0.10.8
 Requires:	gstreamer0.10-plugins-base >= 0.10.11
 Requires:	gstreamer0.10-plugins-good >= 0.10.4
