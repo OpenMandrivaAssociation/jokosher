@@ -2,12 +2,12 @@
 
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
-Version:	0.11.4
-Release:	3
+Version:	0.11.5
+Release:	1
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
-Source0:	http://launchpad.net/jokosher/%{mainver}/%{version}/+download/%{name}-%{version}.tar.gz
+Source0:	https://launchpad.net/jokosher/trunk/0.11.5/+download/%{name}-%{version}.tar.gz
 BuildRequires:	python-devel >= %{py_ver}
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
@@ -34,7 +34,6 @@ Requires(post):	scrollkeeper
 Requires(postun): scrollkeeper
 Obsoletes:	%{name} < 0.9
 BuildArch:	noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Jokosher is a simple and poweful multi-track studio.Jokosher provides 
@@ -75,7 +74,7 @@ desktop-file-install \
     --add-category="Audio;Recorder;X-MandrivaLinux-CrossDesktop;" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-chmod 755 %{buildroot}%{py_sitedir}/Jokosher/Profiler.py
+chmod 755 %{buildroot}%{py_puresitedir}/Jokosher/Profiler.py
 
 #(tpg) wtf?
 #mkdir -p %{buildroot}%{_datadir}/omf/%{name}
@@ -102,10 +101,8 @@ chmod 755 %{buildroot}%{py_sitedir}/Jokosher/Profiler.py
 %endif
 
 %clean
-rm -rf %{buildroot}
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS COPYING README help/*
 %attr(755,root,root) %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
@@ -114,15 +111,15 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%{name}/extensions
 %dir %{_datadir}/%{name}/pixmaps
 %dir %{_datadir}/omf/%{name}
-%dir %{py_sitedir}/Jokosher
-%dir %{py_sitedir}/Jokosher/elements
-%dir %{py_sitedir}/Jokosher/ui
-%dir %{py_sitedir}/Jokosher/PlatformUtils
-%{py_sitedir}/Jokosher/*.py*
-%{py_sitedir}/Jokosher/elements/*.py*
-%{py_sitedir}/Jokosher/PlatformUtils/*.py*
-%{py_sitedir}/Jokosher/ui/*.py*
-%{py_sitedir}/%{name}*egg-info
+%dir %{py_puresitedir}/Jokosher
+%dir %{py_puresitedir}/Jokosher/elements
+%dir %{py_puresitedir}/Jokosher/ui
+%dir %{py_puresitedir}/Jokosher/PlatformUtils
+%{py_puresitedir}/Jokosher/*.py*
+%{py_puresitedir}/Jokosher/elements/*.py*
+%{py_puresitedir}/Jokosher/PlatformUtils/*.py*
+%{py_puresitedir}/Jokosher/ui/*.py*
+%{py_puresitedir}/%{name}*egg-info
 %{_datadir}/applications/jokosher.desktop
 %{_datadir}/gnome/help/jokosher/C/figures/*.png
 %{_datadir}/gnome/help/jokosher/C/*.xml
@@ -251,4 +248,5 @@ rm -rf %{buildroot}
 + Revision: 122087
 - Fix build
 - Import jokosher
+
 
