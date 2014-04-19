@@ -3,7 +3,7 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.11.5
-Release:	1
+Release:	2
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
@@ -20,13 +20,8 @@ Requires:	gstreamer0.10-plugins-good >= 0.10.4
 Requires:	gstreamer0.10-python
 Requires:	gstreamer0.10-plugins-ugly >= 0.10.6
 Requires:	gstreamer0.10-plugins-bad >= 0.10.5
-Requires:	gnome-python
 Requires:	pygtk2.0-libglade
-%if %mdkversion > 200900
 Requires:	python-pkg-resources
-%else
-Requires:	python-setuptools
-%endif
 Requires:	python-pyxml
 Requires:	yelp
 Requires:	ladspa
@@ -82,26 +77,6 @@ chmod 755 %{buildroot}%{py_puresitedir}/Jokosher/Profiler.py
 
 %find_lang %{name}
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_desktop_database}
-%{update_mime_database}
-%{update_scrollkeeper}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_desktop_database}
-%{clean_mime_database}
-%{clean_scrollkeeper}
-%clean_icon_cache hicolor
-%endif
-
-%clean
-
 %files -f %{name}.lang
 %doc AUTHORS COPYING README help/*
 %attr(755,root,root) %{_bindir}/%{name}
@@ -133,120 +108,4 @@ chmod 755 %{buildroot}%{py_puresitedir}/Jokosher/Profiler.py
 %{_datadir}/jokosher/pixmaps/*.png
 %{_datadir}/mime/packages/jokosher.xml
 %{_datadir}/pixmaps/jokosher.png
-
-
-%changelog
-* Tue Nov 02 2010 Michael Scherer <misc@mandriva.org> 0.11.4-2mdv2011.0
-+ Revision: 592408
-- rebuild for python 2.7
-
-* Mon Mar 01 2010 Frederik Himpe <fhimpe@mandriva.org> 0.11.4-1mdv2010.1
-+ Revision: 513256
-- update to new version 0.11.4
-
-* Sat Jun 13 2009 Frederik Himpe <fhimpe@mandriva.org> 0.11.3-1mdv2010.0
-+ Revision: 385721
-- update to new version 0.11.3
-
-* Wed May 13 2009 Frederik Himpe <fhimpe@mandriva.org> 0.11.2-1mdv2010.0
-+ Revision: 375514
-- Update to new version 0.11.2
-- Fix source URL
-
-* Tue May 12 2009 Frederik Himpe <fhimpe@mandriva.org> 0.11-2mdv2010.0
-+ Revision: 374978
-- rebuild
-
-* Sun Mar 08 2009 Tomasz Pawel Gajc <tpg@mandriva.org> 0.11-1mdv2009.1
-+ Revision: 352867
-- update to new version 0.11
-- fix file list
-
-* Mon Dec 29 2008 Götz Waschk <waschk@mandriva.org> 0.10-3mdv2009.1
-+ Revision: 320971
-- rebuild for new python
-
-* Sat Nov 29 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 0.10-2mdv2009.1
-+ Revision: 308014
-- require python-pkg-resources for mdv version greater than 200900, instead of python-setuptools which requires bunch of useless python stuff and python-devel
-
-* Mon Sep 01 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 0.10-1mdv2009.0
-+ Revision: 278188
-- drop patch 0, fixed upstream
-- fix file list
-- update to new version 0.10
-
-* Fri Jul 25 2008 Thierry Vignaud <tv@mandriva.org> 0.9-10mdv2009.0
-+ Revision: 247416
-- rebuild
-
-  + Pixel <pixel@mandriva.com>
-    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
-
-* Sat Mar 08 2008 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-8mdv2008.1
-+ Revision: 182205
-- new license policy
-
-* Mon Feb 18 2008 Thierry Vignaud <tv@mandriva.org> 0.9-7mdv2008.1
-+ Revision: 170905
-- rebuild
-- fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Mon Sep 24 2007 Anne Nicolas <ennael@mandriva.org> 0.9-6mdv2008.0
-+ Revision: 92569
-- Fix menu
-
-* Thu Sep 13 2007 Emmanuel Andry <eandry@mandriva.org> 0.9-5mdv2008.0
-+ Revision: 85339
-- fix desktop file validation
-- remove omf files location workaround
-
-* Wed Aug 08 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-4mdv2008.0
-+ Revision: 60179
-- fix omf files directory
-- tune up the desktop file
-- add python-pyxml to requires
-- add gstreamer-plugins-bad to enable LADSPA effect support
-- add gstreamer-plugins-ugly to enable mp3 files playback
-
-* Wed Jul 25 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-3mdv2008.0
-+ Revision: 55269
-- provide patch, which should fix #31976
-
-* Mon Jul 23 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-2mdv2008.0
-+ Revision: 54506
-- add provides on yelp (should close 31976)
-- set buildrequires on gettext and scrollkeeper
-- add requires on ladspa
-- fix desktop file
-- add post and postun scriplets
-- own missing directories and files
-- extend the description
-
-* Wed May 23 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-1mdv2008.0
-+ Revision: 30341
-- update to the stable version
-
-
-* Wed Feb 28 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-0.20070228.1mdv2007.0
-+ Revision: 127068
-- update to version 0.9 svn
-- spec file clean
-
-* Sun Feb 18 2007 Götz Waschk <waschk@mandriva.org> 0.2-2mdv2007.1
-+ Revision: 122366
-- replace deps by package names that exist on Mandriva and not Debian
-- make it a noarch package
-- change the executable name to match the menu entry
-- this is still unusable, stay tuned
-
-* Sat Feb 17 2007 Jérôme Soyer <saispo@mandriva.org> 0.2-1mdv2007.1
-+ Revision: 122087
-- Fix build
-- Import jokosher
-
 
