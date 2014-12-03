@@ -3,12 +3,12 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.11.5
-Release:	2
+Release:	2.1
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
 Source0:	https://launchpad.net/jokosher/trunk/0.11.5/+download/%{name}-%{version}.tar.gz
-BuildRequires:	python-devel >= %{py_ver}
+BuildRequires:	python-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
 BuildRequires:	gettext
@@ -22,7 +22,6 @@ Requires:	gstreamer0.10-plugins-ugly >= 0.10.6
 Requires:	gstreamer0.10-plugins-bad >= 0.10.5
 Requires:	pygtk2.0-libglade
 Requires:	python-pkg-resources
-Requires:	python-pyxml
 Requires:	yelp
 Requires:	ladspa
 Requires(post):	scrollkeeper
