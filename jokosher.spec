@@ -3,12 +3,12 @@
 Summary:	Simple yet powerful multi-track studio
 Name:		jokosher
 Version:	0.11.5
-Release:	2
+Release:	3
 Group:		Sound
 License:	GPLv2+
 URL:		http://jokosher.org
 Source0:	https://launchpad.net/jokosher/trunk/0.11.5/+download/%{name}-%{version}.tar.gz
-BuildRequires:	python-devel >= %{py_ver}
+BuildRequires:	pkgconfig(python2)
 BuildRequires:	desktop-file-utils
 BuildRequires:	python-setuptools
 BuildRequires:	gettext
@@ -22,7 +22,6 @@ Requires:	gstreamer0.10-plugins-ugly >= 0.10.6
 Requires:	gstreamer0.10-plugins-bad >= 0.10.5
 Requires:	pygtk2.0-libglade
 Requires:	python-pkg-resources
-Requires:	python-pyxml
 Requires:	yelp
 Requires:	ladspa
 Requires(post):	scrollkeeper
@@ -56,10 +55,10 @@ sed -i '1d' Jokosher/JokosherApp.py
 sed -i s/"Version=0.9"/"Version=1.0"/g bin/jokosher.desktop
 
 %build
-python setup.py build
+python2 setup.py build
 
 %install
-python setup.py install --skip-build --root=%{buildroot}
+python2 setup.py install --skip-build --root=%{buildroot}
 
 perl -pi -e 's,%{name}-icon.png,%{name}-icon,g' %{buildroot}%{_datadir}/applications/*
 
@@ -69,11 +68,7 @@ desktop-file-install \
     --add-category="Audio;Recorder;X-MandrivaLinux-CrossDesktop;" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-chmod 755 %{buildroot}%{py_puresitedir}/Jokosher/Profiler.py
-
-#(tpg) wtf?
-#mkdir -p %{buildroot}%{_datadir}/omf/%{name}
-#mv -f %{buildroot}%{_prefix}/jokosher/* %{buildroot}%{_datadir}/omf/%{name}
+chmod 755 %{buildroot}%{py2_puresitedir}/Jokosher/Profiler.py
 
 %find_lang %{name}
 
@@ -86,15 +81,15 @@ chmod 755 %{buildroot}%{py_puresitedir}/Jokosher/Profiler.py
 %dir %{_datadir}/%{name}/extensions
 %dir %{_datadir}/%{name}/pixmaps
 %dir %{_datadir}/omf/%{name}
-%dir %{py_puresitedir}/Jokosher
-%dir %{py_puresitedir}/Jokosher/elements
-%dir %{py_puresitedir}/Jokosher/ui
-%dir %{py_puresitedir}/Jokosher/PlatformUtils
-%{py_puresitedir}/Jokosher/*.py*
-%{py_puresitedir}/Jokosher/elements/*.py*
-%{py_puresitedir}/Jokosher/PlatformUtils/*.py*
-%{py_puresitedir}/Jokosher/ui/*.py*
-%{py_puresitedir}/%{name}*egg-info
+%dir %{py2_puresitedir}/Jokosher
+%dir %{py2_puresitedir}/Jokosher/elements
+%dir %{py2_puresitedir}/Jokosher/ui
+%dir %{py2_puresitedir}/Jokosher/PlatformUtils
+%{py2_puresitedir}/Jokosher/*.py*
+%{py2_puresitedir}/Jokosher/elements/*.py*
+%{py2_puresitedir}/Jokosher/PlatformUtils/*.py*
+%{py2_puresitedir}/Jokosher/ui/*.py*
+%{py2_puresitedir}/%{name}*egg-info
 %{_datadir}/applications/jokosher.desktop
 %{_datadir}/gnome/help/jokosher/C/figures/*.png
 %{_datadir}/gnome/help/jokosher/C/*.xml
