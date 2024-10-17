@@ -6,7 +6,7 @@ Version:	0.11.5
 Release:	4
 Group:		Sound
 License:	GPLv2+
-URL:		http://jokosher.org
+URL:		https://jokosher.org
 Source0:	https://launchpad.net/jokosher/trunk/0.11.5/+download/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	desktop-file-utils
